@@ -1,0 +1,73 @@
+input:,output:
+Gostaria de realizar cadastro,"Fale Nome, email, estado e data de nascimento"
+"Meu nome é Kauê Fernandes Braz, meu E-mail é kauefernandesbraz@gmail.com, Estado é São Paulo e data de nascimento é 23 de março de 2005",Cadastro realizado com sucesso Kauê
+Quero Cadastrar forma de pagamento,"Me diga nesta ordem o número do cartão, nome do titular, data de validade, CVC e um apelido ao cartão"
+"1234567890123456, Kauê Fernandes Braz, 12 do 30, 123 e Cartão Kauê de Crédito",A forma de pagamento foi salva como Cartão Kauê de Crédito
+Gostaria de fazer um pedido,Me diga o nome do produto
+Quero uma Camisa vermelha,"Temos uma Camisa vermelha estampada com uma logo de um dinossauro por 39,90 reais, Gostaria de adicionar ao carrinho?"
+Gostaria de adicionar este produto ao carrinho,Produto adicionado ao carrinho
+Finalizar pedido,"O pedido ficou 39,90"
+Quero atualizar meus dados de contato,"Fale seu novo número de telefone e endereço, por favor."
+"Meu telefone é 11987654321 e meu endereço é Rua Exemplo, 123, São Paulo, SP",Seus dados de contato foram atualizados com sucesso.
+Desejo mudar minha forma de pagamento,"Informe o número do cartão, nome do titular, data de validade, CVC e um novo apelido para o cartão."
+"9876543210987654, Kauê Fernandes, 11/25, 456 e Cartão Kauê Premium",A forma de pagamento foi atualizada para Cartão Kauê Premium.
+Gostaria de consultar o status do meu pedido,"Por favor, informe o número do seu pedido."
+O número do pedido é 12345,Seu pedido 12345 está em processamento e deve ser enviado em breve.
+Quero saber sobre a política de devolução,Nossa política de devolução permite a devolução dentro de 30 dias após a compra. Devoluções são aceitas com o produto em sua embalagem original e com o recibo.
+Preciso de ajuda com um problema no pedido,"Por favor, descreva o problema que você está enfrentando com o pedido."
+O produto chegou com defeito,Lamentamos pelo inconveniente. Vamos iniciar o processo de troca ou devolução. Um representante entrará em contato com você para mais detalhes.
+Posso adicionar um cupom de desconto à minha compra?,Informe o código do cupom de desconto para aplicarmos ao seu pedido.
+O código do cupom é DESCONTO10,O cupom DESCONTO10 foi aplicado com sucesso. Você recebeu 10% de desconto em sua compra.
+Quero receber uma confirmação do meu pedido por e-mail,"Por favor, informe seu endereço de e-mail para enviarmos a confirmação."
+Meu e-mail é kauefernandesbraz@gmail.com,A confirmação do pedido será enviada para kauefernandesbraz@gmail.com.
+Como posso acompanhar a entrega do meu pedido?,Você pode acompanhar a entrega do seu pedido usando o número de rastreamento que enviamos por e-mail.
+Estou procurando por um presente para minha esposa.,"Que tipo de presente você está buscando? Algumas opções populares são joias, roupas e eletrônicos."
+Procuro uma camiseta de algodão confortável.,Temos várias opções de camisetas de algodão. Algumas marcas populares são [Marca X] e [Marca Y].
+Estou interessado em eletrônicos.,"Que tipo de eletrônicos você está procurando? Temos uma variedade de smartphones, laptops e acessórios."
+Quero algo para melhorar meu home office.,"Recomendamos cadeiras ergonômicas, mesas ajustáveis e acessórios como suportes para laptop e luzes LED."
+Preciso de um presente para um amigo que gosta de esportes.,"Algumas sugestões incluem tênis esportivos, equipamentos de treino e acessórios de esportes."
+Estou buscando um livro para ler nas férias.,"Que gênero você prefere? Temos opções em ficção, não-ficção, romance e muito mais."
+Qual é o melhor gadget para alguém que gosta de fotografia?,"Recomendamos câmeras digitais, lentes adicionais e tripés."
+Preciso de uma nova TV para minha sala.,"Temos várias opções de TVs, incluindo 4K e OLED. Alguns modelos recomendados são [Modelo A] e [Modelo B]."
+Estou pensando em comprar um gadget de cozinha.,"Alguns produtos populares incluem processadores de alimentos, mixers e cafeteiras inteligentes."
+Quero um novo livro de culinária.,"Temos livros sobre culinária internacional, receitas rápidas e pratos gourmet."
+Estou procurando um presente para um adolescente.,"Alguns itens populares são fones de ouvido, jogos de vídeo game e roupas de moda."
+Preciso de uma bolsa resistente para viagens.,"Recomendamos mochilas de viagem, bolsas de rodinhas e bolsas de mão robustas."
+Estou procurando um produto para cuidados com a pele.,"Temos uma gama de cremes, séruns e produtos de limpeza facial de marcas renomadas."
+Preciso de um novo laptop para trabalho.,Algumas boas opções são laptops com processadores Intel i5 ou superior e pelo menos 8GB de RAM.
+Estou buscando algo para minha casa de praia.,"Recomendamos cadeiras de praia, guarda-sóis e equipamentos para esportes aquáticos."
+Preciso de uma nova câmera para viagens.,Temos câmeras compactas e DSLRs com ótimas capacidades de imagem.
+Quero um item de decoração para minha sala.,"Algumas opções incluem quadros, vasos e luminárias de design."
+Estou interessado em gadgets de fitness.,"Recomendamos smartwatches, rastreadores de fitness e equipamentos de ginástica para casa."
+Preciso de uma caixa de som Bluetooth.,Temos várias opções com diferentes tamanhos e qualidades de som. Alguns modelos recomendados são [Modelo X] e [Modelo Y].
+Estou procurando um produto para organização da casa.,"Algumas sugestões são organizadores de armário, caixas de armazenamento e prateleiras modulares."
+Quero comprar um presente para um amante de tecnologia.,"Recomendamos gadgets como fones de ouvido sem fio, smart speakers e acessórios para computadores."
+Estou procurando um novo perfume.,Temos uma variedade de perfumes para diferentes gostos e orçamentos.
+Preciso de um utensílio de cozinha inovador.,"Recomendamos gadgets como air fryers, máquinas de café expresso e mixers."
+Estou interessado em aprender um novo hobby.,"Temos livros e kits para hobbies como jardinagem, pintura e modelismo."
+Quero um item para conforto em casa.,"Recomendamos almofadas, cobertores e poltronas confortáveis."
+Preciso de uma nova bicicleta.,"Temos bicicletas de diferentes tipos, incluindo montanha, estrada e híbridas."
+Estou procurando produtos sustentáveis.,"Temos uma seleção de produtos ecológicos, como utensílios de cozinha reutilizáveis e roupas feitas de materiais reciclados."
+Quero algo para meu pet.,"Recomendamos brinquedos para pets, camas e acessórios de cuidados."
+Estou buscando um novo relógio.,"Temos relógios de diversas marcas e estilos, incluindo analógicos e digitais."
+Preciso de um produto para melhorar a qualidade do ar em casa.,Recomendamos purificadores de ar e umidificadores.
+Quero um novo jogo de tabuleiro para família.,Temos vários jogos de tabuleiro para diferentes idades e interesses.
+Estou procurando uma nova ferramenta de jardinagem.,"Recomendamos ferramentas como podadores, regadores e kits de jardinagem."
+Preciso de um produto para melhorar meu sono.,"Recomendamos travesseiros ortopédicos, máquinas de som e lençóis de algodão."
+Quero um novo tablet para entretenimento.,"Temos tablets de várias marcas e tamanhos, adequados para leitura, jogos e produtividade."
+Estou buscando equipamentos para camping.,"Recomendamos tendas, sacos de dormir e lanternas."
+Preciso de um novo smartphone.,"Temos smartphones de várias marcas, incluindo opções com câmeras de alta resolução e longas durações de bateria."
+Quero um item para hobby de DIY.,"Recomendamos kits de artesanato, ferramentas e materiais para projetos DIY."
+Estou procurando produtos de maquiagem.,"Temos uma gama de maquiagens, incluindo bases, batons e paletas de sombras."
+Preciso de um novo jogo para meu console.,"Temos jogos para diferentes consoles, incluindo opções de ação, aventura e esportes."
+Quero um novo sistema de segurança para minha casa.,"Recomendamos câmeras de segurança, alarmes e sensores de movimento."
+Estou interessado em produtos de beleza natural.,Temos uma seleção de produtos de beleza com ingredientes naturais e orgânicos.
+Preciso de um novo equipamento de áudio para o meu home theater.,"Recomendamos sistemas de som surround, barras de som e amplificadores."
+Quero comprar um novo par de sapatos.,"Temos uma variedade de sapatos, incluindo opções casuais, formais e esportivos."
+Estou procurando um novo colchão.,"Recomendamos colchões de diferentes tipos, incluindo espuma viscoelástica e molas ensacadas."
+Preciso de um presente para um aniversariante.,"Que tal um presente personalizado, como um item de joalheria ou um kit de experiências?"
+Quero um novo equipamento para minha academia em casa.,"Recomendamos pesos livres, colchonetes e bicicletas ergométricas."
+Estou interessado em produtos de limpeza para a casa.,"Temos detergentes, produtos de limpeza multiuso e aspiradores de pó."
+Preciso de um novo aquecedor para o inverno.,"Recomendamos aquecedores portáteis, aquecedores a óleo e radiadores."
+Quero um item de jardinagem para plantar flores.,"Recomendamos sementes, fertilizantes e ferramentas de plantio."
+Estou buscando acessórios para meu carro.,"Temos capas de banco, suportes para celular e organizadores de porta-malas."

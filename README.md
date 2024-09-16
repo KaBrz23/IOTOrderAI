@@ -1,6 +1,18 @@
 # Nome da Solução
 OrderAI
 
+## Integrantes do Grupo
+
+- Gabriel Augusto Fernandes - RM98986
+
+- Kauê Fernandes Braz - RM97768
+
+- Mariana Trentino Albano - RM551154
+
+- Matheus Dantas de Sousa - RM98406
+
+- Thomas Nícolas de Melo Mendonça - RM99832
+
 ## Nossa Solução
 
 Nossa solução consiste em um sistema abrangente baseado em **IA generativa** e **Deep Analytics**. O objetivo é transformar a experiência do usuário por meio de inovações tecnológicas que otimizem o processo de compra e recomendação de produtos.
