@@ -1,0 +1,75 @@
+cidade_usuario,estado_usuario,data_cadastro_usuario,data_nascimento_usuario,sexo_usuario,nome_item,descricao_item,quantidade,preco,data_pedido
+Salvador,BA,2023-12-02,1987-05-15,homem,Calculadora Solar,Calculadora solar com display LCD,3,70.00,2023-12-10
+Brasília,DF,2024-01-03,1983-03-25,mulher,Relógio Digital,Relógio digital com cronômetro e alarme,2,120.00,2024-01-08
+São Luís,MA,2024-02-01,1990-04-20,homem,Fogão de Indução,Fogão de indução com 4 bocas e painel touch,1,1500.00,2024-02-10
+Belém,PA,2024-03-01,1994-07-15,mulher,Ventilador de Mesa,Ventilador de mesa com 3 velocidades e inclinação,4,150.00,2024-03-12
+Manaus,AM,2024-04-01,1988-11-30,homem,Máquinas de Costura,Máquina de costura com 10 tipos de pontos,2,350.00,2024-04-15
+Vitória,ES,2024-05-01,1991-02-10,mulher,Frigideira Antiaderente,Frigideira com revestimento antiaderente,3,180.00,2024-05-20
+Blumenau,SC,2024-06-01,1985-09-05,homem,Exaustor de Cozinha,Exaustor para cozinha com 3 velocidades,2,450.00,2024-06-10
+Porto Alegre,RS,2024-07-01,1983-08-25,mulher,Panela de Pressão,Panela de pressão com capacidade de 4L,4,300.00,2024-07-15
+Londrina,PR,2024-08-01,1992-01-10,homem,Liquidificador 2L,Liquidificador com capacidade de 2 litros,3,250.00,2024-08-12
+São José dos Campos,SP,2024-09-01,1994-03-05,mulher,Micro-ondas 30L,Micro-ondas com 30 litros e funções pré-programadas,2,700.00,2024-09-10
+Sorocaba,SP,2024-10-01,1986-07-20,homem,Geladeira 350L,Geladeira com 350 litros e controle digital,1,2000.00,2024-10-01
+Jundiaí,SP,2024-11-01,1989-12-30,mulher,Máquina de Lavar 10kg,Máquina de lavar com capacidade de 10kg,3,1800.00,2024-11-01
+Guarulhos,SP,2024-12-01,1984-06-15,homem,Estante de Livros,Estante de madeira com 6 prateleiras,2,250.00,2024-12-01
+Diadema,SP,2025-01-02,1988-08-10,mulher,Tábua de Corte,Tábua de corte com superfície de bambu,3,90.00,2024-01-02
+Mauá,SP,2025-02-01,1995-09-30,homem,Cadeira de Escritório,Cadeira ergonômica com ajuste de altura e braços,2,450.00,2024-02-01
+São Bernardo do Campo,SP,2025-03-01,1992-04-20,mulher,Tênis de Corrida,Tênis de corrida com amortecimento e ajuste confortável,4,200.00,2024-03-01
+São Caetano do Sul,SP,2025-04-01,1987-11-12,homem,Saca-Rolhas Elétrico,Saca-rolhas elétrico com abertura rápida,2,85.00,2024-04-01
+Ribeirão Preto,SP,2025-05-01,1990-06-15,mulher,Blender 1.5L,Blender com capacidade de 1.5 litros e 3 velocidades,3,180.00,2024-05-01
+Mogi das Cruzes,SP,2025-06-01,1993-02-20,homem,Aspirador de Pó,Aspirador de pó com filtro HEPA e potência de 1500W,2,350.00,2024-06-01
+São Vicente,SP,2025-07-01,1986-08-25,mulher,Luminária LED,Luminária LED com ajuste de intensidade de luz,4,130.00,2024-07-01
+Carapicuíba,SP,2025-08-01,1991-05-30,homem,Máquina de Café Expresso,Máquina de café expresso com capacidade de 1L,3,350.00,2024-08-01
+Osasco,SP,2025-09-01,1994-12-10,mulher,Ar Condicionado 9000 BTU,Ar condicionado com capacidade de 9000 BTU,2,1200.00,2024-09-01
+Suzano,SP,2025-10-01,1992-07-20,homem,Secador de Cabelo,Secador de cabelo com 3 velocidades e 2 temperaturas,4,100.00,2024-10-01
+Taboão da Serra,SP,2025-11-01,1988-04-15,mulher,Livros de Receitas,Conjunto de livros de receitas variadas,3,70.00,2024-11-01
+Santo André,SP,2025-12-01,1993-09-25,homem,Máquina de Fazer Pão,Máquina de fazer pão com 12 programas de receitas,2,450.00,2024-12-01
+São João de Meriti,RJ,2024-01-15,1990-12-20,mulher,Garrafa Térmica,Garrafa térmica com capacidade de 1L,4,85.00,2024-01-15
+Duque de Caxias,RJ,2024-02-15,1985-11-05,homem,Chaleira Elétrica,Chaleira elétrica com capacidade de 1.7L,3,100.00,2024-02-15
+Nova Iguaçu,RJ,2024-03-15,1988-06-15,mulher,Cafeteira,Cafeteira com capacidade de 12 xícaras,2,90.00,2024-03-15
+Niterói,RJ,2024-04-15,1991-04-10,homem,Ferro de Passar,Ferro de passar com vapor e ajuste de temperatura,2,140.00,2024-04-15
+Cabo Frio,RJ,2024-05-15,1992-02-20,mulher,Panela Elétrica,Panela elétrica com capacidade de 2L,3,120.00,2024-05-15
+Campos dos Goytacazes,RJ,2024-06-15,1989-03-30,homem,Caixa de Som Bluetooth,Caixa de som bluetooth com 20W de potência,4,200.00,2024-06-15
+Petrópolis,RJ,2024-07-15,1987-01-25,mulher,Espremedor de Frutas,Espremedor de frutas com motor potente,3,110.00,2024-07-15
+Teresópolis,RJ,2024-08-15,1994-05-20,homem,Mergulhador de Alimentos,Mergulhador de alimentos com controle de temperatura,2,150.00,2024-08-15
+Macaé,RJ,2024-09-15,1988-09-10,mulher,Conjunto de Panelas,Conjunto de panelas antiaderentes,4,350.00,2024-09-15
+Araruama,RJ,2024-10-15,1991-10-25,homem,Máquina de Café,Máquina de café com cápsulas e função de moagem,3,300.00,2024-10-15
+Itaperuna,RJ,2024-11-15,1989-04-10,homem,Sanduicheira,Sanduicheira com placas antiaderentes e ajuste de temperatura,2,90.00,2024-11-15
+Volta Redonda,RJ,2024-12-15,1990-12-05,mulher,Relógio de Parede,Relógio de parede com mecanismo de quartz,4,150.00,2024-12-15
+São Paulo,SP,2023-11-05,1985-03-22,homem,Carregador Portátil,Carregador portátil com múltiplas saídas USB,3,80.00,2023-11-10
+Rio de Janeiro,RJ,2023-12-05,1992-07-18,mulher,Mochila para Laptop,Mochila com compartimento para laptop e vários bolsos,2,160.00,2023-12-10
+Belo Horizonte,MG,2024-01-10,1990-10-12,homem,Teclado Mecânico,Teclado mecânico com iluminação RGB,2,250.00,2024-01-15
+Curitiba,PR,2024-02-10,1988-05-05,mulher,Mouse Óptico,Mouse óptico com ajuste de DPI,4,75.00,2024-02-15
+Recife,PE,2024-03-10,1995-09-15,mulher,Fone de Ouvido Bluetooth,Fone de ouvido Bluetooth com cancelamento de ruído,3,200.00,2024-03-15
+Fortaleza,CE,2024-04-10,1991-03-25,homem,Smartwatch,Smartwatch com monitoramento de frequência cardíaca,2,350.00,2024-04-15
+Porto Alegre,RS,2024-05-10,1984-11-20,mulher,Câmera Fotográfica,Câmera fotográfica digital com 20MP de resolução,1,1200.00,2024-05-15
+Goiânia,GO,2024-06-10,1987-08-12,homem,HD Externo,HD externo com capacidade de 2TB,2,300.00,2024-06-15
+Natal,RN,2024-07-10,1993-12-05,mulher,Impressora Multifuncional,"Impressora com funções de cópia, impressão e digitalização",1,500.00,2024-07-15
+São Luís,MA,2024-08-10,1989-02-15,homem,Roteador Wi-Fi,Roteador com suporte a Wi-Fi 6,3,250.00,2024-08-15
+Maceió,AL,2024-09-10,1992-11-10,mulher,Cafeteira de Cápsulas,Cafeteira para cápsulas com ajuste de intensidade,2,280.00,2024-09-15
+Aracaju,SE,2024-10-10,1994-04-20,homem,Purificador de Ar,Purificador de ar com filtro HEPA,4,350.00,2024-10-15
+Uberlândia,MG,2024-11-10,1986-06-25,mulher,Ar-Condicionado Portátil,Ar-condicionado portátil com controle remoto,1,900.00,2024-11-15
+Campinas,SP,2024-12-10,1990-09-30,homem,Aspirador Robô,Aspirador robô com função de mapeamento,3,600.00,2024-12-15
+São José dos Campos,SP,2024-01-12,1988-03-10,mulher,Liquidificador,Liquidificador com 5 velocidades e função pulsar,2,180.00,2024-01-12
+Sorocaba,SP,2024-02-12,1993-04-05,homem,Tábua de Corte,Tábua de corte com superfície de bambu,4,95.00,2024-02-12
+Ribeirão Preto,SP,2024-03-12,1991-12-15,mulher,Máquina de Café,Máquina de café com 10 xícaras e opções de intensidade,3,230.00,2024-03-12
+Jundiaí,SP,2024-04-12,1995-07-25,homem,Panela Elétrica,Panela elétrica com controle de temperatura,2,150.00,2024-04-12
+São Bernardo do Campo,SP,2024-05-12,1992-11-05,mulher,Ventilador de Pedestal,Ventilador de pedestal com 3 velocidades,4,120.00,2024-05-12
+São Caetano do Sul,SP,2024-06-12,1986-10-15,homem,Frigideira,Frigideira com revestimento antiaderente,2,140.00,2024-06-12
+Osasco,SP,2024-07-12,1989-01-05,mulher,Cadeira Gamer,Cadeira gamer com ajuste ergonômico,1,700.00,2024-07-12
+Guarulhos,SP,2024-08-12,1987-05-30,homem,Câmera de Segurança,Câmera de segurança com visão noturna e gravação,2,400.00,2024-08-12
+São Vicente,SP,2024-09-12,1994-03-25,mulher,Máquina de Lavar Louça,Máquina de lavar louça com 12 programas,1,2200.00,2024-09-12
+Taboão da Serra,SP,2024-10-12,1990-07-10,homem,Refrigerador,Refrigerador com 500L de capacidade e controle digital,1,2500.00,2024-10-12
+São João de Meriti,RJ,2024-11-12,1991-06-20,mulher,Micro-ondas,Micro-ondas com grill e função de descongelamento,2,600.00,2024-11-12
+Nova Iguaçu,RJ,2024-12-12,1988-02-15,homem,Ar Condicionado Split,Ar condicionado split com 12000 BTU,2,1200.00,2024-12-12
+São Gonçalo,RJ,2023-12-20,1995-09-05,mulher,Forno Elétrico,Forno elétrico com capacidade de 30L,3,250.00,2023-12-20
+Campos dos Goytacazes,RJ,2024-01-20,1992-04-12,homem,Cortador de Verduras,Cortador de verduras com lâminas intercambiáveis,2,140.00,2024-01-20
+Petrópolis,RJ,2024-02-20,1993-10-05,mulher,Mixer,Mixer com 5 velocidades e função turbo,3,200.00,2024-02-20
+Teresópolis,RJ,2024-03-20,1987-11-10,homem,Grill Elétrico,Grill elétrico com 6 placas removíveis,2,180.00,2024-03-20
+Macaé,RJ,2024-04-20,1991-05-30,mulher,Secador de Cabelo,Secador de cabelo com 3 temperaturas e 2 velocidades,3,130.00,2024-04-20
+Araruama,RJ,2024-05-20,1994-02-10,mulher,Batedeira,Batedeira com 7 velocidades e tigela de 5L,2,220.00,2024-05-20
+Itaperuna,RJ,2024-06-20,1990-08-25,homem,Grill Panini,Grill panini com placas antiaderentes e ajuste de altura,3,150.00,2024-06-20
+Volta Redonda,RJ,2024-07-20,1988-07-15,mulher,Purificador de Água,Purificador de água com sistema de osmose reversa,2,300.00,2024-07-20
+Cabo Frio,RJ,2024-08-20,1992-09-05,homem,Ventilador de Teto,Ventilador de teto com controle remoto,4,180.00,2024-08-20
+Volta Redonda,RJ,2024-09-20,1991-12-30,mulher,Máquina de Lavar,Máquina de lavar com 15 programas e 8kg de capacidade,2,1200.00,2024-09-20
+Araruama,RJ,2024-10-20,1993-03-12,homem,Tostadeira,Tostadeira com 4 fatias e ajuste de temperatura,3,100.00,2024-10-20

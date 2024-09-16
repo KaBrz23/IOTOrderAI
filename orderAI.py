@@ -3,8 +3,6 @@ import speech_recognition as sr
 from gtts import gTTS
 import os
 from datetime import datetime
-import random
-import requests
 from playsound import playsound
 
 # Configuração do Gemini
