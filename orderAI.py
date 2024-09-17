@@ -7,7 +7,7 @@ from playsound import playsound
 
 # Configuração do Gemini com modelo ajustado
 def configurar_gemini():
-    genai.configure(api_key="AIzaSyAxzvz-m_j4KA7vYpD756onCwGPKcwWal4")
+    genai.configure(api_key="GEMINI_API_KEY")
     return genai.GenerativeModel('tunedModels/orderai-model-ub44uh16v2i3')
 
 model = configurar_gemini()
