@@ -7,6 +7,9 @@ from playsound import playsound
 import time
 import json
 from mongo_connection import conectar_mongo
+from flask import Flask, request, jsonify, render_template
+
+app = Flask(__name__)
 
 # Configuração do Gemini com modelo ajustado
 def configurar_gemini():
@@ -136,8 +139,12 @@ def adicionar_pedido_banco(pedido):
     except Exception as e:
         print(f"Erro ao adicionar o pedido ao banco de dados: {e}")
 
+# Rota para exibir a página HTML com o botão
+@app.route("/")
+def index():
+    return render_template("index.html")  # Renderiza o arquivo HTML
 
-# Função principal
+@app.route("/iniciar_fala", methods=["POST"])
 def main():
     ativo = False  # Variável para controle do estado
     chat_history = []  # Lista para armazenar o histórico da conversa
@@ -179,4 +186,4 @@ def main():
                 falar(resposta_gemini)
 
 if __name__ == "__main__":
-    main()
+    app.run(debug=True)
