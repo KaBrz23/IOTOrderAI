@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Reconhecimento de Voz</title>
+</head>
+<body>
+    <h1>Iniciar Reconhecimento de Voz</h1>
+    <button onclick="iniciarVoz()">Clique para começar a falar</button>
+
+    <script>
+        function iniciarVoz() {
+            fetch('/iniciar_fala', { method: 'POST' })
+                .then(response => response.json())
+                .then(data => {
+                    alert(data.message);
+                })
+                .catch(error => {
+                    console.error('Erro:', error);
+                });
+        }
+    </script>
+</body>
+</html>
