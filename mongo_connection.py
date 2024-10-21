@@ -10,8 +10,11 @@ def conectar_mongo():
         client.admin.command('ping')
         print("Conexão bem-sucedida ao MongoDB!")
 
-        return client  # Retorna o cliente para futuras operações no banco
+        # Especificando o banco de dados
+        db = client['orderai']  # Substitua 'nome_do_banco' pelo nome correto do seu banco de dados
 
-    except ConnectionError as e:
+        return db  # Retorna o banco de dados diretamente para futuras operações
+
+    except Exception as e:
         print(f"Erro ao conectar ao MongoDB: {e}")
         return None
