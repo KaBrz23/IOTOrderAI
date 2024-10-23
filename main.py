@@ -7,7 +7,7 @@ from playsound import playsound
 import time
 import json
 from mongo_connection import conectar_mongo
-from flask import Flask, request, jsonify, render_template
+from flask import Flask, request, jsonify, render_template, send_file
 
 app = Flask(__name__)
 
@@ -29,20 +29,21 @@ def falar(text):
     os.remove(filename)
 
 # Função para ouvir comando de voz
-def escutar():
-    with sr.Microphone() as source:
-        print("Escutando...")
-        audio = recognizer.listen(source)
-        try:
-            command = recognizer.recognize_google(audio, language='pt')
-            print(f"Você disse: {command}")
-            return command.lower()
-        except sr.UnknownValueError:
-            print("Desculpe, não entendi o que você disse.")
-            return ""
-        except sr.RequestError:
-            print("Erro ao conectar com o serviço de reconhecimento de voz.")
-            return ""
+# def escutar():
+#     with sr.Microphone() as source:
+#         print("Escutando...")
+#         audio = recognizer.listen(source)
+#         try:
+#             command = recognizer.recognize_google(audio, language='pt')
+#             print(f"Você disse: {command}")
+#             return command.lower()
+#         except sr.UnknownValueError:
+#             print("Desculpe, não entendi o que você disse.")
+#             return ""
+#         except sr.RequestError:
+#             print("Erro ao conectar com o serviço de reconhecimento de voz.")
+#             return ""
+
 
 def upload_to_gemini(path, mime_type=None):
   file = genai.upload_file(path, mime_type=mime_type)
@@ -144,46 +145,41 @@ def adicionar_pedido_banco(pedido):
 def index():
     return render_template("index.html")  # Renderiza o arquivo HTML
 
+chat_history = []
 @app.route("/iniciar_fala", methods=["POST"])
 def main():
-    ativo = False  # Variável para controle do estado
-    chat_history = []  # Lista para armazenar o histórico da conversa
+    data = request.json  # Obtém os dados JSON do POST
+    command = data.get("command", "")  # Obtém o comando reconhecido
+    global chat_history  # Lista para armazenar o histórico da conversa
     pedido = {}  # Variável para armazenar o pedido
-    while True:
-        if not ativo:
-            command = escutar()
-            if "ok fiapinho" in command:
-                ativo = True
-                falar("Olá. Como posso te ajudar?")
 
-        if ativo:
-            command = escutar()
-            # Adiciona o comando ao histórico
-            chat_history.append({"user": command})
+    # Adiciona o comando ao histórico
+    chat_history.append({"user": command})
 
-            if "que horas são" in command:
-                informar_horas()
-            elif "conectar com o banco" in command:
-                conectar_mongo()
-            elif "finalizar pedido" in command:
-                adicionar_pedido_banco(pedido)
-                falar("Pedido finalizado")
-            elif "sair" in command:
-                falar("Até mais!")
-                ativo = False
-                # Exibe o histórico de chat ao final da conversa
-                print("\nHistórico da Conversa:")
-                for entry in chat_history:
-                    print(f"Usuário: {entry['user']}, Gemini: {entry.get('model', 'Sem resposta')}")
-                chat_history = []  # Limpa o histórico ao sair da conversa
-            else:
-                resposta_gemini, pedido = gerar_resposta(command, chat_history)
-                # Adiciona a resposta do Gemini ao histórico
-                chat_history[-1]["model"] = resposta_gemini
+    if "que horas são" in command:
+        informar_horas()
+    elif "finalizar pedido" in command:
+        adicionar_pedido_banco(pedido)
+        falar("Pedido finalizado")
+    elif "sair" in command:
+        falar("Até mais!")
+        # Exibe o histórico de chat ao final da conversa
+        print("\nHistórico da Conversa:")
+        for entry in chat_history:
+            print(f"Usuário: {entry['user']}, Gemini: {entry.get('model', 'Sem resposta')}")
+        chat_history = []  # Limpa o histórico ao sair da conversa
+        return jsonify({"message": "Conversa encerrada"}), 200  # Finaliza a conversa
+    else:
+        resposta_gemini, pedido = gerar_resposta(command, chat_history)
+        # Adiciona a resposta do Gemini ao histórico
+        chat_history[-1]["model"] = resposta_gemini
 
-                print(f"Resposta do Gemini: {resposta_gemini}")
-                print(f"PEDIDO ATUALIZADO: {pedido}")
-                falar(resposta_gemini)
+        print(f"Resposta do Gemini: {resposta_gemini}")
+        print(f"PEDIDO ATUALIZADO: {pedido}")
+        falar(resposta_gemini)
+
+    return jsonify({"message": "Comando processado", "resposta": resposta_gemini}), 200  # Responde com a mensagem
+
 
 if __name__ == "__main__":
     app.run(debug=True)

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -111,22 +112,46 @@
 
     <script>
         function iniciarVoz() {
-            // Exibir ondas sonoras
-            const ondas = document.getElementById('ondas');
-            ondas.style.display = 'block';
+            const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+            recognition.lang = 'pt-BR'; // Define o idioma
+            recognition.interimResults = false; // Não exibe resultados intermediários
+            recognition.maxAlternatives = 1; // Apenas uma alternativa
 
-            fetch('/iniciar_fala', { method: 'POST' })
+            recognition.start(); // Inicia o reconhecimento
+            console.log('Escutando...');
+
+            recognition.onresult = function(event) {
+                const command = event.results[0][0].transcript; // Captura o comando
+                console.log('Você disse: ', command);
+
+                // Envia o comando para o backend
+                fetch('/iniciar_fala', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ command: command }), // Envia o comando reconhecido
+                })
                 .then(response => response.json())
                 .then(data => {
                     alert(data.message);
-                    // Ocultar ondas sonoras após a resposta
-                    ondas.style.display = 'none';
                 })
                 .catch(error => {
                     console.error('Erro:', error);
-                    ondas.style.display = 'none';
                 });
+            };
+
+            recognition.onerror = function(event) {
+                console.error('Erro de reconhecimento: ', event.error);
+            };
+
+            recognition.onend = function() {
+                console.log('Reconhecimento finalizado.');
+                recognition.start();
+            };
         }
     </script>
+
+
 </body>
 </html>

@@ -1,0 +1,6 @@
+Flask
+gtts
+playsound
+speechrecognition
+google-generativeai
+pymongo
