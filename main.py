@@ -25,8 +25,11 @@ def falar(text):
     filename = "voice.mp3"
     tts.save(filename)
 
-    playsound(filename)
+    response = send_file(filename, mimetype="audio/mpeg", as_attachment=False)
     os.remove(filename)
+
+    return response
+
 
 # Função para ouvir comando de voz
 # def escutar():
