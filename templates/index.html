@@ -1,115 +1,150 @@
-
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OrderAI</title>
+    <!-- Import Google Font Nunito -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Import Font Awesome for the microphone icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        /* Estilos Globais */
-        body, html {
+        * {
             margin: 0;
             padding: 0;
-            height: 100%;
-            font-family: 'Arial', sans-serif;
+            box-sizing: border-box;
+        }
+
+        body {
+            height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            background: linear-gradient(135deg, #ff7f50, #ff4500); /* Gradiente laranja */
-            color: #fff;
+            background: linear-gradient(to bottom, #001133, #000);
+            flex-direction: column;
             text-align: center;
+            font-family: 'Nunito', sans-serif;
         }
 
         h1 {
-            font-size: 3rem;
-            margin-bottom: 40px;
-            letter-spacing: 1px;
-            font-family: 'ITC Bauhaus', sans-serif;
+            color: #fff;
+            margin-bottom: 20px;
         }
 
-        /* Estilizando o botão do microfone */
-        .microfone {
-            background: transparent;
-            border: none;
-            cursor: pointer;
-            outline: none;
-            transition: transform 0.3s ease;
+        p {
+            color: #fdfffd;
+            margin-top: 20px;
+        }
+
+        .container {
             position: relative;
+            display: flex;
             justify-content: center;
             align-items: center;
-            width: 80px; /* Ajuste o tamanho conforme necessário */
-            height: 80px; /* Ajuste o tamanho conforme necessário */
-            z-index: 2; /* Coloca o botão acima das ondas */
+            width: 200px;
+            height: 200px;
         }
 
-        /* Estilos para as ondas sonoras */
-        .ondas {
-            display: none;
-            position: absolute;
-            top: 50%; /* Centraliza verticalmente */
-            left: 50%; /* Centraliza horizontalmente */
-            transform: translate(-50%, -50%);
-            width: 120px; /* Ajuste conforme necessário */
-            height: 120px; /* Ajuste conforme necessário */
-            z-index: 1; /* Coloca as ondas atrás do botão */
+        .container .microphone {
+            font-size: 60px;
+            color: #fff;
+            animation: blinkAndPulse 1s infinite;
+            cursor: pointer;
+            border: none;
+            background: none;
         }
 
-        /* Animação de ondas sonoras */
-        .onda {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            position: absolute;
-            background: rgba(255, 255, 255, 0.3);
-            opacity: 0.8;
-            animation: onda 1s infinite ease-in-out;
-        }
 
-        /* Estilos da animação de onda */
-        @keyframes onda {
+        @keyframes blinkAndPulse {
             0% {
-                transform: scale(0.5);
-                opacity: 0.5;
-            }
-            50% {
+                opacity: 1;
                 transform: scale(1);
-                opacity: 0;
+                color: #fff;
             }
+
+            50% {
+                opacity: 1;
+                transform: scale(1.1);
+                color: #0065ff;
+
+            }
+
             100% {
-                transform: scale(0.5);
-                opacity: 0.5;
+                opacity: 1;
+                transform: scale(1);
+                color: #fff;
+
             }
         }
 
-        /* Responsivo para dispositivos móveis */
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2.5rem;
+
+        .spinner {
+            width: 160px;
+            height: 160px;
+            border-width: 2px;
+            position: absolute;
+            border: 4px solid transparent;
+            border-top-color: #0040b0;
+            border-radius: 50%;
+            animation: spin 2s linear infinite;
+        }
+
+        .spinner:nth-child(2) {
+            width: 180px;
+            height: 180px;
+            border-width: 3px;
+            border-top-color: #005ae4;
+            animation-duration: 3s;
+            animation-direction: reverse;
+            border-radius: 50%;
+        }
+
+        .spinner:nth-child(3) {
+            width: 120px;
+            height: 120px;
+            border-width: 2px;
+            border-top-color: #0065ff;
+            animation-duration: 1.5s;
+            border-radius: 50%;
+        }
+
+        .spinner:nth-child(4) {
+            width: 200px;
+            height: 200px;
+            border-width: 5px;
+            border-top-color: #0065ff;
+            animation-duration: 2.5s;
+            animation-direction: reverse;
+            border-radius: 50%;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
             }
-            .microfone {
-                width: 60px;
-                height: 60px;
+
+            100% {
+                transform: rotate(360deg);
             }
         }
     </style>
-    <link href="https://fonts.googleapis.com/css2?family=ITC+Bauhaus&display=swap" rel="stylesheet"> <!-- Link para a fonte ITC Bauhaus -->
 </head>
-<body>
-    <div>
-        <h1>OrderAI</h1>
-        <div class="ondas" id="ondas">
-            <div class="onda"></div>
-            <div class="onda" style="animation-delay: 0.2s;"></div>
-            <div class="onda" style="animation-delay: 0.4s;"></div>
-        </div>
-        <button class="microfone" onclick="iniciarVoz()">
-            <!-- Ícone do Microfone em SVG -->
-            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="white">
-                <path d="M12 15a3 3 0 003-3V3a3 3 0 10-6 0v9a3 3 0 003 3zm6-3a6 6 0 01-12 0h-2a8 8 0 0016 0h-2z" />
-            </svg>
-        </button>
-    </div>
 
+<body>
+
+    <h1>Bem-vindo ao OrderAI</h1>
+    <div class="container">
+        <div class="spinner"></div>
+        <div class="spinner"></div>
+        <div class="spinner"></div>
+        <div class="spinner"></div>
+        <button class="microphone" onclick="iniciarVoz()">
+            <i class="fas fa-microphone"></i>
+        </button>
+
+    </div>
+    <p>Clique para começar</p>
     <script>
         function iniciarVoz() {
             const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
@@ -134,7 +169,7 @@
                 })
                 .then(response => response.json())
                 .then(data => {
-                    alert(data.message);
+                    //alert(data.message);
                 })
                 .catch(error => {
                     console.error('Erro:', error);
@@ -152,6 +187,6 @@
         }
     </script>
 
-
 </body>
+
 </html>
