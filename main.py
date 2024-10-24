@@ -6,6 +6,7 @@ from datetime import datetime
 from playsound import playsound
 import time
 import json
+import pygame
 from mongo_connection import conectar_mongo
 from flask import Flask, request, jsonify, render_template, send_file
 
@@ -20,15 +21,27 @@ model = configurar_gemini()
 recognizer = sr.Recognizer()
 
 # Função de fala
+#def falar(text):
+#    tts = gTTS(text=text, lang='pt-br', slow=False)  # Ajuste a velocidade da voz
+#    filename = "voice.mp3"
+#    tts.save(filename)
+#
+#    playsound(filename)
+#    os.remove(filename)
+
 def falar(text):
-    tts = gTTS(text=text, lang='pt-br', slow=False)  # Ajuste a velocidade da voz
-    filename = "voice.mp3"
-    tts.save(filename)
+    tts = gTTS(text=text, lang='pt-br', slow=False)  # Gera o áudio
+    filename = "voice.mp3"  # Nome temporário do arquivo
+    tts.save(filename)  # Salva o áudio
 
-    playsound(filename)
+    # Envia o arquivo de áudio para o front-end
+    response = send_file(filename, mimetype="audio/mpeg", as_attachment=False)
+
+    # Exclui o arquivo após o envio
     os.remove(filename)
+    
+    return response
 
-# Função para ouvir comando de voz
 # def escutar():
 #     with sr.Microphone() as source:
 #         print("Escutando...")
@@ -182,4 +195,4 @@ def main():
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host="0.0.0.0", debug=True)

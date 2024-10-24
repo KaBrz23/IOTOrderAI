@@ -145,47 +145,56 @@
 
     </div>
     <p>Clique para começar</p>
-    <script>
-        function iniciarVoz() {
-            const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
-            recognition.lang = 'pt-BR'; // Define o idioma
-            recognition.interimResults = false; // Não exibe resultados intermediários
-            recognition.maxAlternatives = 1; // Apenas uma alternativa
 
-            recognition.start(); // Inicia o reconhecimento
-            console.log('Escutando...');
+<script>
+    function iniciarVoz() {
+        const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+        recognition.lang = 'pt-BR'; // Define o idioma
+        recognition.interimResults = false; // Não exibe resultados intermediários
+        recognition.maxAlternatives = 1; // Apenas uma alternativa
 
-            recognition.onresult = function(event) {
-                const command = event.results[0][0].transcript; // Captura o comando
-                console.log('Você disse: ', command);
+        recognition.start(); // Inicia o reconhecimento
+        console.log('Escutando...');
 
-                // Envia o comando para o backend
-                fetch('/iniciar_fala', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({ command: command }), // Envia o comando reconhecido
-                })
-                .then(response => response.json())
-                .then(data => {
-                    //alert(data.message);
-                })
-                .catch(error => {
-                    console.error('Erro:', error);
-                });
-            };
+        recognition.onresult = function(event) {
+            const command = event.results[0][0].transcript; // Captura o comando
+            console.log('Você disse: ', command);
 
-            recognition.onerror = function(event) {
-                console.error('Erro de reconhecimento: ', event.error);
-            };
+            // Envia o comando para o backend
+            fetch('/iniciar_fala', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ command: command }), // Envia o comando reconhecido
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Verifica se a resposta contém a propriedade "resposta"
+                if (data.resposta) {
+                    const respostaTexto = data.resposta; // Captura a resposta
+                    const utterance = new SpeechSynthesisUtterance(respostaTexto); // Cria a utterance
+                    utterance.lang = 'pt-BR'; // Define o idioma
+                    window.speechSynthesis.speak(utterance); // Executa o áudio
+                } else {
+                    console.error('Resposta não contém texto:', data);
+                }
+            })
+            .catch(error => {
+                console.error('Erro:', error);
+            });
+        };
 
-            recognition.onend = function() {
-                console.log('Reconhecimento finalizado.');
-                recognition.start();
-            };
-        }
-    </script>
+        recognition.onerror = function(event) {
+            console.error('Erro de reconhecimento: ', event.error);
+        };
+
+        recognition.onend = function() {
+            console.log('Reconhecimento finalizado.');
+            recognition.start(); // Reinicia o reconhecimento
+        };
+    }
+</script>
 
 </body>
 
