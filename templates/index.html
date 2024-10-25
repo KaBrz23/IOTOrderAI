@@ -1,13 +1,9 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OrderAI</title>
-    <!-- Import Google Font Nunito -->
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
-    <!-- Import Font Awesome for the microphone icon -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         * {
@@ -21,7 +17,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            background: linear-gradient(to bottom, #001133, #000);
+            background: linear-gradient(to bottom, #FF914D, #FF3131);
             flex-direction: column;
             text-align: center;
             font-family: 'Nunito', sans-serif;
@@ -55,29 +51,23 @@
             background: none;
         }
 
-
         @keyframes blinkAndPulse {
             0% {
                 opacity: 1;
                 transform: scale(1);
                 color: #fff;
             }
-
             50% {
                 opacity: 1;
                 transform: scale(1.1);
-                color: #0065ff;
-
+                color: #fff;
             }
-
             100% {
                 opacity: 1;
                 transform: scale(1);
                 color: #fff;
-
             }
         }
-
 
         .spinner {
             width: 160px;
@@ -85,7 +75,7 @@
             border-width: 2px;
             position: absolute;
             border: 4px solid transparent;
-            border-top-color: #0040b0;
+            border-top-color: #ffffff;
             border-radius: 50%;
             animation: spin 2s linear infinite;
         }
@@ -94,7 +84,7 @@
             width: 180px;
             height: 180px;
             border-width: 3px;
-            border-top-color: #005ae4;
+            border-top-color: #ffffff;
             animation-duration: 3s;
             animation-direction: reverse;
             border-radius: 50%;
@@ -104,7 +94,7 @@
             width: 120px;
             height: 120px;
             border-width: 2px;
-            border-top-color: #0065ff;
+            border-top-color: #ffffff;
             animation-duration: 1.5s;
             border-radius: 50%;
         }
@@ -113,7 +103,7 @@
             width: 200px;
             height: 200px;
             border-width: 5px;
-            border-top-color: #0065ff;
+            border-top-color: #ffffff;
             animation-duration: 2.5s;
             animation-direction: reverse;
             border-radius: 50%;
@@ -123,14 +113,12 @@
             0% {
                 transform: rotate(0deg);
             }
-
             100% {
                 transform: rotate(360deg);
             }
         }
     </style>
 </head>
-
 <body>
 
     <h1>Bem-vindo ao OrderAI!</h1>
@@ -142,54 +130,86 @@
         <button class="microphone" onclick="iniciarVoz()">
             <i class="fas fa-microphone"></i>
         </button>
-
     </div>
-    <p>Clique para começar</p>
+    <p id="instruction">Clique para começar</p>
+
+    <script src="https://code.responsivevoice.org/responsivevoice.js"></script>
+
     <script>
-    function iniciarVoz() {
-        const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
-        recognition.lang = 'pt-BR'; // Define o idioma
-        recognition.interimResults = false; // Não exibe resultados intermediários
-        recognition.maxAlternatives = 1; // Apenas uma alternativa
-        recognition.start(); // Inicia o reconhecimento
-        console.log('Escutando...');
-        recognition.onresult = function(event) {
-            const command = event.results[0][0].transcript; // Captura o comando
-            console.log('Você disse: ', command);
-            // Envia o comando para o backend
-            fetch('/iniciar_fala', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ command: command }), // Envia o comando reconhecido
-            })
-            .then(response => response.json())
-            .then(data => {
-                // Verifica se a resposta contém a propriedade "resposta"
-                if (data.resposta) {
-                    const respostaTexto = data.resposta; // Captura a resposta
-                    const utterance = new SpeechSynthesisUtterance(respostaTexto); // Cria a utterance
-                    utterance.lang = 'pt-BR'; // Define o idioma
-                    window.speechSynthesis.speak(utterance); // Executa o áudio
-                } else {
-                    console.error('Resposta não contém texto:', data);
+        let audioPlaying = false; // Variável para controlar se o áudio está tocando
+        let recognition; // Declara a variável de reconhecimento fora da função
+
+        function iniciarVoz() {
+            const instructionElement = document.querySelector('#instruction'); // Move a seleção para dentro da função
+            if (instructionElement) {
+                instructionElement.style.display = 'none'; // Esconde a instrução
+            }
+
+            // Verifica se o reconhecimento já está ativo
+            if (recognition && audioPlaying) {
+                return; // Se o áudio estiver tocando, não inicia novo reconhecimento
+            }
+
+            recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+            recognition.lang = 'pt-BR'; // Define o idioma
+            recognition.interimResults = false; // Não exibe resultados intermediários
+            recognition.maxAlternatives = 1; // Apenas uma alternativa
+
+            recognition.start(); // Inicia o reconhecimento
+            console.log('Escutando...');
+
+            recognition.onresult = function(event) {
+                const command = event.results[0][0].transcript; // Captura o comando
+                console.log('Você disse: ', command);
+
+                // Envia o comando para o backend
+                fetch('/iniciar_fala', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ command: command }), // Envia o comando reconhecido
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.resposta) {
+                        const respostaTexto = data.resposta; // Captura a resposta
+
+                        // Inicia a fala usando o ResponsiveVoice
+                        audioPlaying = true; // O áudio começou a tocar
+                        responsiveVoice.speak(respostaTexto, "Brazilian Portuguese Male", {
+                            onstart: () => {
+                                console.log('A fala começou.');
+                            },
+                            onend: () => {
+                                audioPlaying = false; // O áudio terminou
+                                console.log('A fala terminou. Reiniciando reconhecimento...');
+                                recognition.start(); // Reinicia o reconhecimento
+                            },
+                            // Adicionando um pouco de delay
+                            delay: 0.5 // Um pequeno atraso para suavizar a transição
+                        });
+                    } else {
+                        console.error('Resposta não contém texto:', data);
+                    }
+                })
+                .catch(error => {
+                    console.error('Erro:', error);
+                });
+            };
+
+            recognition.onerror = function(event) {
+                console.error('Erro de reconhecimento: ', event.error);
+            };
+
+            recognition.onend = function() {
+                if (!audioPlaying) {
+                    console.log('Reconhecimento finalizado.');
                 }
-            })
-            .catch(error => {
-                console.error('Erro:', error);
-            });
-        };
-        recognition.onerror = function(event) {
-            console.error('Erro de reconhecimento: ', event.error);
-        };
-        recognition.onend = function() {
-            console.log('Reconhecimento finalizado.');
-            recognition.start(); // Reinicia o reconhecimento
-        };
-    }
-</script>
+            };
+        }
+    </script>
+
 
 </body>
-
 </html>
