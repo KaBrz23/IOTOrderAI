@@ -30,8 +30,7 @@ Com mais de **6,5 milhões de deficientes visuais no Brasil**, essa solução pr
 
 ### 2. Sistema de Recomendação
 
-O **sistema de recomendação** utiliza **deep analytics** para analisar o histórico de compras, tendências de mercado e dados sazonais. A partir disso, ele sugere produtos complementares ou oferece dicas úteis ao cliente durante o processo de compra.
-
+O **sistema de recomendação** utiliza a própria IA Generativa para analisar tendências de compras e trazer recomendações em cima do produto que está sendo comproado no momento. A partir disso, ele sugere produtos complementares ou realiza comparações entre os produtos.
 O sistema de recomendação poderá ser utilizado de duas maneiras:
 1. **Assistente Virtual**: O assistente por voz também poderá oferecer recomendações personalizadas durante as interações.
 2. **Interface Visual**: Um layout visual com sugestões de produtos complementares será disponibilizado na plataforma, proporcionando uma experiência personalizada ao cliente.
@@ -52,9 +51,9 @@ A combinação dessas duas tecnologias resulta em uma solução completa e perso
 Nossa solução é composta por duas camadas principais de IA, cada uma abordando diferentes aspectos do assistente por voz e do sistema de recomendação:
 
 1. **Assistente por Voz (Anotação de Pedidos):**
-   - **Reconhecimento de Fala:** Utiliza a biblioteca `speech_recognition` para converter a fala em texto. Este componente capta o comando do usuário através do microfone e transcreve para um formato processável pela IA.
+   - **Reconhecimento de Fala:** Utiliza a biblioteca `speech_recognition` para converter a fala em texto no FrontEnd. Este componente capta o comando do usuário através do microfone e transcreve para um formato processável pela IA.
    - **Processamento de Linguagem Natural (PLN):** O texto transcrito é processado pelo modelo de IA generativa, Gemini, para entender e gerar respostas contextuais e humanizadas.
-   - **Síntese de Fala:** A resposta gerada pelo modelo é convertida novamente em fala usando a biblioteca `gTTS`, permitindo que o assistente comunique-se com o usuário de forma audível.
+   - **Síntese de Fala:** A resposta gerada pelo modelo é convertida novamente em fala usando a biblioteca `responsiveVoice`, permitindo que o assistente comunique-se com o usuário de forma audível.
 
 2. **Sistema de Recomendação:**
    - **Análise de Dados:** Utiliza um dataset armazenado em um arquivo CSV que contém informações sobre produtos, suas categorias e descrições. Esse dataset é lido e filtrado para fornecer recomendações relevantes.
@@ -62,7 +61,7 @@ Nossa solução é composta por duas camadas principais de IA, cada uma abordand
 
 ### Justificativa da Escolha da Arquitetura
 
-- **Eficiência e Precisão:** O uso de `speech_recognition` e `gTTS` garante uma comunicação fluida e natural. O modelo Gemini oferece respostas contextuais apropriadas e humanizadas.
+- **Eficiência e Precisão:** O uso de `speech_recognition` e `responsiveVoice` garante uma comunicação fluida e natural. O modelo Gemini oferece respostas contextuais apropriadas e humanizadas.
 - **Flexibilidade:** A arquitetura permite ajustes fáceis no modelo Gemini e manutenção simples do dataset CSV.
 - **Acessibilidade:** Projetada para ser acessível a pessoas com deficiência visual, facilitando a interação através de comandos de voz.
 - **Personalização:** O sistema de recomendação fornece sugestões específicas baseadas nas preferências do usuário, melhorando a experiência e a satisfação.
